@@ -39,7 +39,7 @@ export default function Result() {
 
     return (
         <div>
-            <p className="read-the-docs">
+            <p>
                 {temp}
             </p>
         </div>
