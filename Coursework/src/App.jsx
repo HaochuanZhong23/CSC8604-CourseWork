@@ -5,11 +5,37 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [temp, setTemp] = useState(0)
+  const [temp, setTemp] = useState(null)
 
-  useEffect(()=>{
-    async 
-  })
+  useEffect(() => {
+    async function fetchData(url) {
+      try {
+        const res = await fetch(`http://localhost:3000${url}`, {
+          mode: 'no-cors',
+          method: 'get',
+          headers: {
+            "Content-Type": "application/json"
+          },
+        })
+        if (!res.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const jsonData = await res.json();
+        return jsonData;
+      } catch (error) {
+        console.error(`Error fetching data from ${url}:`, error)
+        return [];
+      }
+    }
+
+    async function getData() {
+      const temperature = await fetchData('/temp')
+      console.log(temperature)
+      setTemp(temperature)
+    }
+
+    getData()
+  }, [])
 
   return (
     <>
@@ -31,7 +57,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        {temp}
       </p>
     </>
   )
