@@ -11,12 +11,13 @@ function App() {
     async function fetchData(url) {
       try {
         const res = await fetch(`http://localhost:3000${url}`, {
-          mode: 'no-cors',
+          //mode: 'no-cors',
           method: 'get',
           headers: {
             "Content-Type": "application/json"
           },
         })
+        console.log(JSON.stringify(res))
         if (!res.ok) {
           throw new Error('Network response was not ok')
         }
