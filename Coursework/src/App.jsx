@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Result from './Result';
 import Suggestion from './Suggestion';
+import './App.css'
 
 
 function App() {

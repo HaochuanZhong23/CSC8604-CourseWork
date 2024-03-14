@@ -1,6 +1,11 @@
 import express from 'express'
 import cors from 'cors'
 import temperature from './sensor/temp.mjs'
+import humidity from './sensor/humidity.mjs'
+import light from './sensor/light.mjs'
+import pm25 from './sensor/pm2.5.mjs'
+import pm10 from './sensor/pm10.mjs'
+
 
 const app = express()
 

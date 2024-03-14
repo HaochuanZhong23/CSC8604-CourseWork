@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.mobile{
+  max-width: 768px;
+  width: 100%;
+  margin: auto;
+}
+
+.content{
+  max-width: 80%;
+  margin: auto;
+}
+
+.container{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.extra-large-heading{
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.large-heading{
+  font-size: 1.375rem;
+  font-weight: bold;
+}
+
+.small-heading{
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.running-text{
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.small-text{
+  font-size: .75rem;
+  font-weight: 400;
+}
+
+.font-default-black{
+  color: #333;
+}
+
+.font-default-normal{
+  color: #666;
+}
+
+.font-default-unimportant{
+  color: #999;
+}
+
+.font-default-offwhite{
+  color: #fff
+}
+
+.spacing-xs{
+  height: 0.625rem;
+
+}
+
+.spacing-sm{
+  height: 1.25rem;
+
+}
+
+.spacing-md{
+  height: 2.5rem;
+
+}
+
+.spacing-lg{
+  height: 4rem;
+
+}
+
+.spacing-xl{
+  height: 6rem;
+
+}

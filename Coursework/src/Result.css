@@ -1,0 +1,43 @@
+.image-wrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.addPot{
+    width: 4.6875rem;
+    height: 4.6875rem;
+    background-color: #67B46E;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 50%;
+}
+
+.addIcon{
+    width: 2.5rem;
+}
+
+.addPot:hover{
+    transition: all 300ms;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.potImg{
+    width: 4.6875rem;
+    height: 4.6875rem;
+    border-radius: 10px;
+    background-image:url("./assets/img/Pot-3.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-right: 1rem;
+}
+
+.potImg:hover{
+    transition: all 300ms;
+    transform: scale(1.1);
+}
