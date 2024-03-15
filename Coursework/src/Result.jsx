@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
 
 export default function Result() {
 
-    const [temp, setTemp] = useState(null)
+    const [data, setData] = useState({})
 
     useEffect(() => {
         async function fetchData(url) {
@@ -37,9 +37,9 @@ export default function Result() {
         }
 
         async function getData() {
-            const temperature = await fetchData('/temp')
-            console.log(temperature)
-            setTemp(temperature)
+            const sensorData = await fetchData('/data')
+            console.log(sensorData)
+            setData(sensorData)
         }
 
         getData()
