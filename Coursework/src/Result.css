@@ -41,3 +41,98 @@
     transition: all 300ms;
     transform: scale(1.1);
 }
+
+.result{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.potNavWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.potNavLeft{
+    width: 60%;
+    height: 40px;
+    background-color: #F1F7EE;
+    border-radius: 20px;
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.potNavRight{
+    width: 30%;
+}
+
+.potItem{
+    padding-left: 12px;
+    padding-right: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.active{
+    background-color: #67B46E;
+    color: white;
+}
+
+.dropDown{
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.dropDown{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.dropIcon{
+    width: 12px;
+    height: 8px;
+}
+
+.dataWrapper{
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.dataItem{
+    background-color: #E1F0DA;
+    width: 27%;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.upperWrap{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dataIcon{
+    height: 20px;
+    background-color: white;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.link-margin{
+    margin-left: 10px;
+}
