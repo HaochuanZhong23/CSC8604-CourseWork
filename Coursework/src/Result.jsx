@@ -12,7 +12,10 @@ import { useEffect, useState } from 'react'
 
 export default function Result() {
 
-    const [data, setData] = useState({})
+    const [pm25Data, setPm25] = useState(null)
+    const [pm10Data, setPm10] = useState(null)
+    const [tempData, setTemp] = useState(null)
+    const [humData, setHum] = useState(null)
 
     useEffect(() => {
         async function fetchData(url) {
@@ -37,9 +40,15 @@ export default function Result() {
         }
 
         async function getData() {
-            const sensorData = await fetchData('/data')
-            console.log(sensorData)
-            setData(sensorData)
+            const pm25Data = await fetchData('/pm25')
+            const pm10Data = await fetchData('/pm10')
+            const tempData = await fetchData('/temp')
+            const humData = await fetchData('/hum')
+            console.log(pm25Data.pm25, pm10Data.pm10, tempData.temperature, humData.humidity)
+            setPm25(pm25Data.pm25)
+            setPm10(pm10Data.pm10)
+            setTemp(tempData.temperature)
+            setHum(humData.humidity)
         }
 
         getData()
@@ -89,7 +98,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>PM 2.5</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>68</h3>
+                                    <h3 className='small-heading font-default-black'>{pm25Data}</h3>
                                     <h3 className='small-heading font-default-black'>ug/m3</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
@@ -99,7 +108,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>PM 10</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>80</h3>
+                                    <h3 className='small-heading font-default-black'>{pm10Data}</h3>
                                     <h3 className='small-heading font-default-black'>ug/m3</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
@@ -109,7 +118,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>Humidity</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>50</h3>
+                                    <h3 className='small-heading font-default-black'>{humData}</h3>
                                     <h3 className='small-heading font-default-black'>%</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
@@ -119,7 +128,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>Temp</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>15</h3>
+                                    <h3 className='small-heading font-default-black'>{tempData}</h3>
                                     <h3 className='small-heading font-default-black'>ºC</h3>
                                     <div className='spacing-xs'></div>
                                 </div>

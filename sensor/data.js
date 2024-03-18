@@ -2,6 +2,7 @@ const SerialPort = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
 const dhtSensor = require('node-dht-sensor').promises;
 const fs = require('fs');
+const { mode } = require('rpio');
 
 // SDS011传感器设置
 const SDS011_PORT = '/dev/ttyUSB0';
@@ -13,32 +14,32 @@ const parser = sds011SerialPort.pipe(new ReadlineParser({ delimiter: '\n' }));
 const DHT_SENSOR_TYPE = 11; // 对应DHT11
 const DHT_PIN = 4; // 树莓派上连接DHT11数据线的GPIO针脚
 
-// 读取SDS011传感器
+/* // 读取SDS011传感器
 function querySDS011Sensor() {
   const command = Buffer.from([0xAA, 0xB4, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xAB]);
-  sds011SerialPort.write(command, function(err) {
+  sds011SerialPort.write(command, function (err) {
     if (err) {
       console.error('Error on write to SDS011:', err.message);
     } else {
       console.log('SDS011 query sent');
     }
   });
-}
+} */
 // Send request to the sensor
 sds011SerialPort.write(Buffer.from([0xAA, 0xB4, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xAB]));
 
 // Read a fixed number of bytes (10 bytes) from the serial port
-async function querySDS011Sensor(){
-sds011SerialPort.once('data', data => {
-  const bytes = data;
-  if (bytes[0] === 0xAA && bytes[1] === 0xC0) {
-    const pm25 = (bytes[3] + bytes[2] * 256) / 10; // Calculate PM2.5 value
-    const pm10 = (bytes[5] + bytes[4] * 256) / 10; // Calculate PM10 value
-    console.log(`SDS011 - PM 2.5: ${pm25} μg/m3, PM 10: ${pm10} μg/m3`);
-  } else {
-    console.log('Invalid or incomplete data packet received');
-  }
-});
+async function querySDS011Sensor() {
+  sds011SerialPort.once('data', data => {
+    const bytes = data;
+    if (bytes[0] === 0xAA && bytes[1] === 0xC0) {
+      const pm25 = (bytes[3] + bytes[2] * 256) / 10; // Calculate PM2.5 value
+      const pm10 = (bytes[5] + bytes[4] * 256) / 10; // Calculate PM10 value
+      console.log(`SDS011 - PM 2.5: ${pm25} μg/m3, PM 10: ${pm10} μg/m3`);
+    } else {
+      console.log('Invalid or incomplete data packet received');
+    }
+  });
 }
 
 // 读取DHT11传感器
@@ -63,9 +64,8 @@ function logData(pm25, pm10, temperature, humidity) {
   fs.writeFileSync('sensor_data.json', JSON.stringify(data));
 }
 
-const fs = require('fs');
 // Function to read the sensor data from the file
-export default function readSensorData() {
+function readSensorData() {
   try {
     // Synchronously read the file content
     const data = fs.readFileSync('sensor_data.json', 'utf8');
@@ -77,8 +77,10 @@ export default function readSensorData() {
     return null;
   }
 }
+
 // Example usage
 const sensorData = readSensorData();
+
 if (sensorData) {
   console.log(`PM 2.5: ${sensorData.pm25} μg/m3`);
   console.log(`PM 10: ${sensorData.pm10} μg/m3`);
@@ -86,3 +88,5 @@ if (sensorData) {
   console.log(`Humidity: ${sensorData.humidity}%`);
   console.log(`Timestamp: ${sensorData.timestamp}`);
 }
+
+module.exports = { sensorData: readSensorData() };
