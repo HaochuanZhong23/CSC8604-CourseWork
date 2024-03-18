@@ -57,7 +57,6 @@ export default function Result() {
         getData()
     }, [])
 
-
     return (
         <div className='mobile'>
             <div className='content'>
@@ -141,7 +140,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>Light</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black' style={{ color: (light > 1000 || light < 200) ? 'red' : 'inherit' }}>{light}</h3>
+                                    <h3 className='small-heading font-default-black' style={{ color: (light > 250 || light < 50) ? 'red' : 'inherit' }}>{light}</h3>
                                     <h3 className='small-heading font-default-black'>%</h3>
                                     <div className='spacing-xs'></div>
                                 </div>

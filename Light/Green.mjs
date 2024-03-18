@@ -3,7 +3,7 @@ import led from 'sense-hat-led';
 const GREEN = [0, 255, 0]; // 绿色
 
 // 绿色呼吸效果
-function breatheGreen() {
+export function breatheGreen() {
     let brightness = 0; // 初始亮度
     let step = 5; // 亮度调整步长
     const maxBrightness = 255; // 最大亮度
@@ -21,8 +21,6 @@ function breatheGreen() {
         if (brightness >= maxBrightness || brightness <= minBrightness) {
             step = -step; // 达到亮度极限时改变步长方向
         }
-    }, 30); // 控制呼吸速度的定时器间隔
+        console.log("green")
+    }, 100); // 控制呼吸速度的定时器间隔
 }
-
-// 启动绿色呼吸效果
-export default breatheGreen();

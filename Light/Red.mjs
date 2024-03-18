@@ -3,7 +3,7 @@ import led from 'sense-hat-led';
 const RED = [255, 0, 0]; // 定义红色
 
 // 红色呼吸效果
-function breatheRed() {
+export function breatheRed() {
     let brightness = 0; // 初始亮度
     let step = 5; // 亮度调整步长
     const maxBrightness = 255; // 最大亮度
@@ -21,8 +21,6 @@ function breatheRed() {
         if (brightness >= maxBrightness || brightness <= minBrightness) {
             step = -step; // 达到亮度极限时改变步长方向
         }
+        console.log('red')
     }, 100); // 控制呼吸速度的定时器间隔
 }
-
-// 启动红色呼吸效果
-export default breatheRed();

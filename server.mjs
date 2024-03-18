@@ -4,7 +4,6 @@ import {pm25, pm10} from './sensor/pm.mjs'
 import { getLightValue } from './sensor/light.mjs'
 import { temperature, humidity, setNewDataHandler, getCurrentValue } from './sensor/tempHum.js'
 
-
 const app = express()
 
 app.use(cors())
@@ -47,6 +46,4 @@ app.get('/hum', (req, res) => {
 
 app.listen(3000, () => {
   console.log('Listening at http://localhost:3000/')
-  console.log(pm25)
-  console.log(pm10)
 })

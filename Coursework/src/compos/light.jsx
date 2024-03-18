@@ -99,7 +99,7 @@ export default function Light() {
                 <div className='spacing-xs'></div>
                 {averagelight !== null && (
                     <p className='small-text font-default-unimportant'>
-                        {averagelight < 200 ? 'Too dark' : averagelight > 1000 ? 'Too bright' : ''}
+                        {averagelight < 50 ? 'Too dark' : averagelight > 250 ? 'Too bright' : ''}
                     </p>
                 )}
             </div>
