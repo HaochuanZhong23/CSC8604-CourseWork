@@ -7,3 +7,11 @@
 .heightControl{
     height: 200px;
 }
+
+.high-humidity {
+    color: red; /* Change text color to red for high humidity */
+}
+
+.low-humidity {
+    color: red; /* Change text color to red for low humidity */
+}

@@ -66,6 +66,8 @@ export default function Humidity() {
     }, [time])
 
     const averagehum = humValues.length > 0 ? (humValues.reduce((acc, val) => acc + val, 0) / humValues.length).toFixed(1) : null;
+    const isHighHumidity = averagehum !== null && averagehum > 50;
+    const isLowHumidity = averagehum !== null && averagehum < 30;
 
     const DemoLine = () => {
        const config = {
@@ -96,7 +98,7 @@ export default function Humidity() {
                 <div className='heightControl'><DemoLine /></div>
                 <div className='spacing-xs'></div>
                 <p className='running-text font-default-black'>Average humidity</p>
-                <h3 className='small-heading font-default-black'>{averagehum}</h3>
+                <h3 className={`small-heading font-default-black ${isHighHumidity ? 'high-humidity' : isLowHumidity ? 'low-humidity' : ''}`}>{averagehum}</h3>
             </div>
         </div>
     )
