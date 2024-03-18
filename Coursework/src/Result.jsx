@@ -5,7 +5,7 @@ import add from './assets/icon/add.png'
 import drop from './assets/icon/drop.png'
 import pm25 from './assets/icon/pm25.png'
 import pm10 from './assets/icon/pm10.png'
-import light from './assets/icon/light.png'
+import lightIcon from './assets/icon/light.png'
 import tempIcon from './assets/icon/temp.png'
 import humidity from './assets/icon/humidity.png'
 import { useEffect, useState } from 'react'
@@ -82,7 +82,7 @@ export default function Result() {
                             <div className='spacing-sm'></div>
                             <div className='potNavWrapper'>
                                 <div className='potNavLeft'>
-                                    <div className='potItem active running-text'>Pot 1</div>
+                                    <div className='potItem active running-text'>Aloe</div>
                                     <div className='potItem running-text font-default-offwhite'>Pot 2</div>
                                     <div className='potItem running-text font-default-offwhite'>Pot 3</div>
                                 </div>
@@ -101,7 +101,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>PM 2.5</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>{pm25Data}</h3>
+                                    <h3 className='small-heading font-default-black' style={{ color: (pm25Data > 500) ? 'red' : 'inherit' }}>{pm25Data}</h3>
                                     <h3 className='small-heading font-default-black'>ug/m3</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
@@ -111,7 +111,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>PM 10</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>{pm10Data}</h3>
+                                    <h3 className='small-heading font-default-black' style={{ color: (pm10Data > 500) ? 'red' : 'inherit' }}>{pm10Data}</h3>
                                     <h3 className='small-heading font-default-black'>ug/m3</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
@@ -121,17 +121,17 @@ export default function Result() {
                                         <p className='small-text font-default-black'>Humidity</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>{humData}</h3>
+                                    <h3 className='small-heading font-default-black' style={{ color: (humData > 50 || humData < 30) ? 'red' : 'inherit' }}>{humData}</h3>
                                     <h3 className='small-heading font-default-black'>%</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
                                 <div className='dataItem'>
                                     <div className='upperWrap'>
-                                        <img src={light} className='dataIcon'></img>
+                                        <img src={lightIcon} className='dataIcon'></img>
                                         <p className='small-text font-default-black'>Temp</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>{tempData}</h3>
+                                    <h3 className='small-heading font-default-black' style={{ color: (tempData > 27 || tempData < 4) ? 'red' : 'inherit' }}>{tempData}</h3>
                                     <h3 className='small-heading font-default-black'>ºC</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
@@ -141,7 +141,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>Light</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>{light}</h3>
+                                    <h3 className='small-heading font-default-black' style={{ color: (light > 1000 || light < 200) ? 'red' : 'inherit' }}>{light}</h3>
                                     <h3 className='small-heading font-default-black'>%</h3>
                                     <div className='spacing-xs'></div>
                                 </div>

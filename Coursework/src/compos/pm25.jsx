@@ -95,7 +95,13 @@ export default function PM25() {
                 <div className='heightControl'><DemoLine /></div>
                 <div className='spacing-xs'></div>
                 <p className='running-text font-default-black'>Average pm2.5</p>
-                <h3 className='small-heading font-default-black'>{averagePm25}</h3>
+                <h3 className='small-heading font-default-black' style={{ color: (averagePm25 > 500) ? 'red' : 'inherit' }}>{averagePm25}</h3>
+                <div className='spacing-xs'></div>
+                {averagePm25 !== null && (
+                    <p className='small-text font-default-unimportant'>
+                        { averagePm25 > 500 ? 'PM 2.5 too high' : ''}
+                    </p>
+                )}
             </div>
         </div>
     )

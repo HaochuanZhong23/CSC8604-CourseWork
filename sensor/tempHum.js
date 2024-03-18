@@ -1,5 +1,4 @@
 const dhtSensor = require('node-dht-sensor').promises;
-
 const DHT_SENSOR_TYPE = 11;
 const DHT_PIN = 4;
 

@@ -25,4 +25,4 @@ function breatheGreen() {
 }
 
 // 启动绿色呼吸效果
-breatheGreen();
+export default breatheGreen();

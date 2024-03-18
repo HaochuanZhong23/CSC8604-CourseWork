@@ -95,7 +95,13 @@ export default function Light() {
                 <div className='heightControl'><DemoLine /></div>
                 <div className='spacing-xs'></div>
                 <p className='running-text font-default-black'>Average lightness</p>
-                <h3 className='small-heading font-default-black'>{averagelight}</h3>
+                <h3 className='small-heading font-default-black' style={{ color: (averagelight > 1000 || averagelight < 200) ? 'red' : 'inherit' }}>{averagelight}</h3>
+                <div className='spacing-xs'></div>
+                {averagelight !== null && (
+                    <p className='small-text font-default-unimportant'>
+                        {averagelight < 200 ? 'Too dark' : averagelight > 1000 ? 'Too bright' : ''}
+                    </p>
+                )}
             </div>
         </div>
     )

@@ -96,7 +96,13 @@ export default function Temp() {
                 <div className='heightControl'><DemoLine /></div>
                 <div className='spacing-xs'></div>
                 <p className='running-text font-default-black'>Average Temperature</p>
-                <h3 className='small-heading font-default-black'>{averagetemp}</h3>
+                <h3 className='small-heading font-default-black' style={{ color: (averagetemp > 27 || averagetemp < 4) ? 'red' : 'inherit' }}>{averagetemp}</h3>
+                <div className='spacing-xs'></div>
+                {averagetemp !== null && (
+                    <p className='small-text font-default-unimportant'>
+                        {averagetemp < 4 ? 'Too cold' : averagetemp > 27 ? 'Too hot' : ''}
+                    </p>
+                )}
             </div>
         </div>
     )

@@ -25,4 +25,4 @@ function breatheRed() {
 }
 
 // 启动红色呼吸效果
-breatheRed();
+export default breatheRed();
