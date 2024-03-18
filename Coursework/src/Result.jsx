@@ -16,6 +16,7 @@ export default function Result() {
     const [pm10Data, setPm10] = useState(null)
     const [tempData, setTemp] = useState(null)
     const [humData, setHum] = useState(null)
+    const [light, setLight] = useState(null)
 
     useEffect(() => {
         async function fetchData(url) {
@@ -44,11 +45,13 @@ export default function Result() {
             const pm10Data = await fetchData('/pm10')
             const tempData = await fetchData('/temp')
             const humData = await fetchData('/hum')
-            console.log(pm25Data.pm25, pm10Data.pm10, tempData.temperature, humData.humidity)
+            const lightData = await fetchData('/light')
+            console.log(pm25Data.pm25, pm10Data.pm10, tempData.temperature, humData.humidity, lightData.value)
             setPm25(pm25Data.pm25)
             setPm10(pm10Data.pm10)
             setTemp(tempData.temperature)
             setHum(humData.humidity)
+            setLight(lightData.value)
         }
 
         getData()
@@ -138,7 +141,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>Light</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black'>72</h3>
+                                    <h3 className='small-heading font-default-black'>{light}</h3>
                                     <h3 className='small-heading font-default-black'>%</h3>
                                     <div className='spacing-xs'></div>
                                 </div>

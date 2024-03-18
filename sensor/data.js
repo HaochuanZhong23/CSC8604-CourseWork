@@ -4,11 +4,32 @@ const dhtSensor = require('node-dht-sensor').promises;
 const fs = require('fs');
 const { mode } = require('rpio');
 
+const Readline = SerialPort.parsers.Readline;
 // SDS011传感器设置
 const SDS011_PORT = '/dev/ttyUSB0';
 const sds011SerialPort = new SerialPort(SDS011_PORT, { baudRate: 9600 });
 
 const parser = sds011SerialPort.pipe(new ReadlineParser({ delimiter: '\n' }));
+
+//Light
+//import SerialPort from 'serialport';
+//const Readline = SerialPort.parsers.Readline;
+
+const portPath = '/dev/ttyACM0';
+const baudRate = 115200;
+
+const port = new SerialPort(portPath, {
+  baudRate: baudRate
+});
+const parser2 = port.pipe(new Readline({ delimiter: '\r\n' }));
+  
+parser2.on('data', function(data) {
+  console.log(data);
+  });
+  parser2.on('data', function(data) {
+  let value = data.split('Light:')[1];
+  value = parseInt(value, 10); //这个是Light value!! 只有数字的
+  });
 
 // DHT11传感器设置
 const DHT_SENSOR_TYPE = 11; // 对应DHT11
@@ -58,6 +79,7 @@ sds011SerialPort.on('open', () => {
 });
 
 setInterval(readDHT11Sensor, 3000); // 每两秒读取一次DHT11传感器数据
+
 
 function logData(pm25, pm10, temperature, humidity) {
   const data = { pm25, pm10, temperature, humidity, timestamp: new Date() };

@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import {pm25, pm10} from './sensor/pm.mjs'
+import { getLightValue } from './sensor/light.mjs'
 import { temperature, humidity, setNewDataHandler, getCurrentValue } from './sensor/tempHum.js'
 
 
@@ -20,6 +21,12 @@ app.get('/pm25', (req, res) => {
 app.get('/pm10', (req, res) => {
     res.json({pm10})
     console.log(pm10)
+})
+
+app.get('/light', (req, res) => {
+  const value = getLightValue();
+  res.json({value})
+  console.log(value)
 })
 
 app.get('/temp', (req, res) => {
