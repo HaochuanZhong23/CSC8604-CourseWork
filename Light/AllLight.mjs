@@ -9,7 +9,7 @@ let currentColor = GREEN; // 默认开始时使用绿色
 
 function breatheLight(color) {
     let step = 5;
-    let minBrightness = 0;
+    let minBrightness = 50;
     let maxBrightness = 255;
     let brightness = minBrightness;
     let increasing = true;

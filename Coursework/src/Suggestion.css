@@ -1,0 +1,39 @@
+.upperImg{
+    width: 100%;
+    background-image: url('./assets/img/ChineseEvergreen.png');
+    height: 400px;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.tag{
+    width: 135px;
+    text-align: center;
+    background-color: #07986B;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.tagAlert{
+    width: 135px;
+    text-align: center;
+    background-color: orange;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.tag-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.plantCard{
+    padding: 15px;
+    border-radius: 20px;
+    background-color: white;
+}
