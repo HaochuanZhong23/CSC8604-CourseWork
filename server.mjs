@@ -3,6 +3,9 @@ import cors from 'cors'
 import {pm25, pm10} from './sensor/pm.mjs'
 import { getLightValue } from './sensor/light.mjs'
 import { temperature, humidity, setNewDataHandler, getCurrentValue } from './sensor/tempHum.js'
+import { checkAndUpdateLight } from './Light/AllLight.mjs'
+
+checkAndUpdateLight()
 
 const app = express()
 

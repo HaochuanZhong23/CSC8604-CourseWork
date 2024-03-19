@@ -96,7 +96,7 @@ export default function PM10() {
                 <div className='heightControl'><DemoLine /></div>
                 <div className='spacing-xs'></div>
                 <p className='running-text font-default-black'>Average pm10</p>
-                <h3 className='small-heading font-default-black' style={{ color: (averagePm10 > 351) ? 'red' : 'inherit' }}>{averagePm10}</h3>
+                <h3 className='small-heading font-default-black' style={{ color: (averagePm10 > 351) ? 'red' : 'inherit' }}>{averagePm10}ug/m3</h3>
                 <div className='spacing-xs'></div>
                 {averagePm10 !== null && (
                     <p className='small-text font-default-unimportant'>

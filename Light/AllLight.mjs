@@ -30,7 +30,7 @@ function breatheLight(color) {
 
 let stopBreathe = breatheLight(currentColor); // 启动默认呼吸灯效果
 
-function checkAndUpdateLight() {
+export function checkAndUpdateLight() {
     const currentHumidity = getCurrentValue().humidity;
     const currentPm25 = pm25;
     const currentPm10 = pm10;
