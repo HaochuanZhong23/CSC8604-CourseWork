@@ -81,7 +81,7 @@ export default function Result() {
                             <div className='spacing-sm'></div>
                             <div className='potNavWrapper'>
                                 <div className='potNavLeft'>
-                                    <div className='potItem active running-text'>Aloe</div>
+                                    <div className='potItem active running-text'>Pot 1</div>
                                     <div className='potItem running-text font-default-offwhite'>Pot 2</div>
                                     <div className='potItem running-text font-default-offwhite'>Pot 3</div>
                                 </div>
@@ -100,7 +100,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>PM 2.5</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black' style={{ color: (pm25Data > 500) ? 'red' : 'inherit' }}>{pm25Data}</h3>
+                                    <h3 className='small-heading font-default-black' style={{ color: (pm25Data > 121) ? 'red' : 'inherit' }}>{pm25Data}</h3>
                                     <h3 className='small-heading font-default-black'>ug/m3</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
@@ -110,7 +110,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>PM 10</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black' style={{ color: (pm10Data > 500) ? 'red' : 'inherit' }}>{pm10Data}</h3>
+                                    <h3 className='small-heading font-default-black' style={{ color: (pm10Data > 351) ? 'red' : 'inherit' }}>{pm10Data}</h3>
                                     <h3 className='small-heading font-default-black'>ug/m3</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
@@ -120,7 +120,7 @@ export default function Result() {
                                         <p className='small-text font-default-black'>Humidity</p>
                                     </div>
                                     <div className='spacing-xs'></div>
-                                    <h3 className='small-heading font-default-black' style={{ color: (humData > 50 || humData < 30) ? 'red' : 'inherit' }}>{humData}</h3>
+                                    <h3 className='small-heading font-default-black' style={{ color: (humData > 60 || humData < 30) ? 'red' : 'inherit' }}>{humData}</h3>
                                     <h3 className='small-heading font-default-black'>%</h3>
                                     <div className='spacing-xs'></div>
                                 </div>
@@ -150,6 +150,8 @@ export default function Result() {
                             <div className='spacing-sm'></div>
                         </div>
                     </div>
+                    <div className='spacing-md'></div>
+                    <Link to='/suggestion'><button className='btn-default'>Suggestion</button></Link>
                 </div>
             </div>
         </div>

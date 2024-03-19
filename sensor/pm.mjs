@@ -14,8 +14,10 @@ async function querySDS011Sensor() {
     sds011SerialPort.once('data', data => {
         const bytes = data;
         if (bytes[0] === 0xAA && bytes[1] === 0xC0) {
-            pm25 = (bytes[3] + bytes[2] * 256) / 10; // Calculate PM2.5 value
-            pm10 = (bytes[5] + bytes[4] * 256) / 10; // Calculate PM10 value
+            //pm25 = (bytes[1] + bytes[2] * 256) / 10; // Calculate PM2.5 value
+            pm25 = bytes[3] * 256 + bytes[2] / 10;
+            //pm10 = (bytes[4] + bytes[5] * 256) / 10; // Calculate PM10 value
+            pm10 = bytes[5]* 256 + bytes[4] / 10;
             console.log(`SDS011 - PM 2.5: ${pm25} μg/m3, PM 10: ${pm10} μg/m3`);
         } else {
             console.log('Invalid or incomplete data packet received');

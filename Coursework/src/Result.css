@@ -136,3 +136,23 @@
 .link-margin{
     margin-left: 10px;
 }
+
+.btn-default{
+    width: 9.375rem;
+    height: 3.125rem;
+    background-color: #333; /* 可以修改颜色 */
+    border: none;
+    border-radius: .625rem;
+    cursor: pointer;
+    transition: all .15s;
+    color: #fff;
+    font-size: 1rem;
+
+}
+
+.btn-default:hover{
+    background-color: #999; /* 可以修改颜色 */
+    transform: scale(1.01);
+    transition: all .15s;
+    color: #333;
+}

@@ -96,11 +96,11 @@ export default function Humidity() {
                 <div className='heightControl'><DemoLine /></div>
                 <div className='spacing-xs'></div>
                 <p className='running-text font-default-black'>Average humidity</p>
-                <h3 className='small-heading font-default-black' style={{ color: (averagehum > 50 || averagehum < 30) ? 'red' : 'inherit' }}>{averagehum}</h3>
+                <h3 className='small-heading font-default-black' style={{ color: (averagehum > 60 || averagehum < 30) ? 'red' : 'inherit' }}>{averagehum}</h3>
                 <div className='spacing-xs'></div>
                 {averagehum !== null && (
                     <p className='small-text font-default-unimportant'>
-                        {averagehum < 30 ? 'Humidity too low' : averagehum > 50 ? 'Humidity too high' : ''}
+                        {averagehum < 30 ? 'Humidity too low' : averagehum > 60 ? 'Humidity too high' : ''}
                     </p>
                 )}
             </div>

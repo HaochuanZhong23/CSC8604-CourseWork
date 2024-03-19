@@ -90,12 +90,12 @@ export default function Light() {
     return (
         <div>
             <div className='light'>
-                <p className='running-text font-default-black'>PM 2.5</p>
+                <p className='running-text font-default-black'>Light level</p>
                 <div className='spacing-xs'></div>
                 <div className='heightControl'><DemoLine /></div>
                 <div className='spacing-xs'></div>
                 <p className='running-text font-default-black'>Average lightness</p>
-                <h3 className='small-heading font-default-black' style={{ color: (averagelight > 1000 || averagelight < 200) ? 'red' : 'inherit' }}>{averagelight}</h3>
+                <h3 className='small-heading font-default-black' style={{ color: (averagelight > 250 || averagelight < 50) ? 'red' : 'inherit' }}>{averagelight}</h3>
                 <div className='spacing-xs'></div>
                 {averagelight !== null && (
                     <p className='small-text font-default-unimportant'>
