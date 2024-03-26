@@ -5,7 +5,7 @@ import led from 'sense-hat-led';
 const RED = [255, 0, 0];
 const GREEN = [0, 255, 0];
 
-let currentColor = GREEN; // 默认开始时使用绿色
+let currentColor = GREEN; // default to start with green
 
 function breatheLight(color) {
     let step = 5;
@@ -25,10 +25,10 @@ function breatheLight(color) {
         }
     }, 100);
 
-    return () => clearInterval(interval); // 返回一个停止呼吸灯效果的函数
+    return () => clearInterval(interval);
 }
 
-let stopBreathe = breatheLight(currentColor); // 启动默认呼吸灯效果
+let stopBreathe = breatheLight(currentColor); // call to change color
 
 export function checkAndUpdateLight() {
     const currentHumidity = getCurrentValue().humidity;
@@ -40,10 +40,10 @@ export function checkAndUpdateLight() {
 
     if (currentColor !== newColor) {
         currentColor = newColor;
-        stopBreathe(); // 停止当前的呼吸灯效果
-        stopBreathe = breatheLight(currentColor); // 启动新的呼吸灯效果
+        stopBreathe(); // stop breathing
+        stopBreathe = breatheLight(currentColor); // change to another color
     }
 }
 
-// 定期检查传感器读数，并更新灯光效果
-setInterval(checkAndUpdateLight, 5000); // 每5秒检查一次
+// constant check sensor data
+setInterval(checkAndUpdateLight, 5000); // every 5 sec

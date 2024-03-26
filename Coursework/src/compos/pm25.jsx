@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom'
 import { Line } from '@ant-design/charts';
 
 export default function PM25() {
-
+    //get and set data
     const [pm25Data, setPm25] = useState(null)
     const [time, setTime] = useState(0);
     const [data, setData] = useState([]);
     const [pm25Values, setPm25Values] = useState([]);
 
+    // get data from urls
     useEffect(() => {
         async function fetchData(url) {
             try {
@@ -64,11 +65,13 @@ export default function PM25() {
         return () => clearInterval(intervalId);
     }, [time])
 
+    //count the average pm25
     const averagePm25 = pm25Values.length > 0 ? (pm25Values.reduce((acc, val) => acc + val, 0) / pm25Values.length).toFixed(1) : null;
 
+    // initialize antd chart
     const DemoLine = () => {
        const config = {
-            data,
+            data, // inject data array here
             xField: 'time',
             yField: 'value',
             point: {

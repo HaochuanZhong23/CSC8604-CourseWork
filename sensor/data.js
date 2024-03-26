@@ -1,3 +1,4 @@
+//!!!!!!not in use
 const SerialPort = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
 const dhtSensor = require('node-dht-sensor').promises;

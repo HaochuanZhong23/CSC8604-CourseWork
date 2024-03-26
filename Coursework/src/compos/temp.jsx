@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom'
 import { Line } from '@ant-design/charts';
 
 export default function Temp() {
-
+    //get and set data
     const [tempData, settemp] = useState(null)
     const [time, setTime] = useState(0);
     const [data, setData] = useState([]);
     const [tempValues, settempValues] = useState([]);
 
+    //get data from urls
     useEffect(() => {
         async function fetchData(url) {
             try {
@@ -65,11 +66,12 @@ export default function Temp() {
         return () => clearInterval(intervalId);
     }, [time])
 
-    const averagetemp = tempValues.length > 0 ? (tempValues.reduce((acc, val) => acc + val, 0) / tempValues.length).toFixed(1) : null;
+    const averagetemp = tempValues.length > 0 ? (tempValues.reduce((acc, val) => acc + val, 0) / tempValues.length).toFixed(1) : null; // count average temp
 
+    // Initialize Antd chart
     const DemoLine = () => {
        const config = {
-            data,
+            data, // inject data array here
             xField: 'time',
             yField: 'value',
             point: {

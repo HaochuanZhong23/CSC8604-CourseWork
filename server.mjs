@@ -5,12 +5,15 @@ import { getLightValue } from './sensor/light.mjs'
 import { temperature, humidity, setNewDataHandler, getCurrentValue } from './sensor/tempHum.js'
 import { checkAndUpdateLight } from './Light/AllLight.mjs'
 
+//Breathing light control
 checkAndUpdateLight()
 
 const app = express()
 
+//Allow cross origin
 app.use(cors())
 
+//Data URLs
 app.get('/', (req, res) => {
   res.send('Hello, world!')
 })
@@ -32,7 +35,6 @@ app.get('/light', (req, res) => {
 })
 
 app.get('/temp', (req, res) => {
-  //res.json({temperature})
   res.json({
     temperature: getCurrentValue().temperature
   })
@@ -40,7 +42,6 @@ app.get('/temp', (req, res) => {
 })
 
 app.get('/hum', (req, res) => {
-  //res.json({humidity})
   res.json({
     humidity: getCurrentValue().humidity
   })

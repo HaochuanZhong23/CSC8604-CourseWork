@@ -11,17 +11,18 @@ import humidity from './assets/icon/humidity.png'
 import { useEffect, useState } from 'react'
 
 export default function Result() {
-
+    //get and set data
     const [pm25Data, setPm25] = useState(null)
     const [pm10Data, setPm10] = useState(null)
     const [tempData, setTemp] = useState(null)
     const [humData, setHum] = useState(null)
     const [light, setLight] = useState(null)
 
+    //call APIs
     useEffect(() => {
         async function fetchData(url) {
             try {
-                const res = await fetch(`http://localhost:3000${url}`, {
+                const res = await fetch(`http://localhost:3000${url}`, { //spelling urls
                     //mode: 'no-cors',
                     method: 'get',
                     headers: {

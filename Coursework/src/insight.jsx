@@ -4,6 +4,7 @@ import './insight.css'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Line } from '@ant-design/charts';
+//call different components
 import PM25 from './compos/pm25'
 import PM10 from './compos/pm10'
 import Temp from './compos/temp'

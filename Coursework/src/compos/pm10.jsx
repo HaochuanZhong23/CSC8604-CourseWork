@@ -8,12 +8,13 @@ import { Line } from '@ant-design/charts';
 
 export default function PM10() {
 
-
+    //get and set data
     const [pm10Data, setpm10] = useState(null)
     const [time, setTime] = useState(0);
     const [data, setData] = useState([]);
     const [pm10Values, setpm10Values] = useState([]);
 
+    // get data from urls
     useEffect(() => {
         async function fetchData(url) {
             try {
@@ -66,11 +67,12 @@ export default function PM10() {
         return () => clearInterval(intervalId);
     }, [time])
 
+    //count average of pm10
     const averagePm10 = pm10Values.length > 0 ? (pm10Values.reduce((acc, val) => acc + val, 0) / pm10Values.length).toFixed(1) : null;
 
     const DemoLine = () => {
         const config = {
-            data,
+            data, //inject data array here
             xField: 'time',
             yField: 'value',
             point: {

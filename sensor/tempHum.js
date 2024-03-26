@@ -7,11 +7,12 @@ let humidity
 
 let newDataHandler = null
 
+//Read DHT11 function
 async function readDHT11Sensor() {
     try {
       const data = await dhtSensor.read(DHT_SENSOR_TYPE, DHT_PIN);
-        temperature = data.temperature.toFixed(1);
-        humidity = data.humidity.toFixed(1);
+        temperature = data.temperature.toFixed(1);// getting temperature
+        humidity = data.humidity.toFixed(1);//getting humidity
         console.log(`DHT11 - Temp: ${temperature}°C, Humidity: ${humidity}%`);
         if (newDataHandler) {
           newDataHandler(temperature, humidity)
@@ -25,6 +26,7 @@ function setNewDataHandler(handler) {
   newDataHandler = handler
 }
 
+//A call back function
 function getCurrentValue() {
   return {
     temperature,
@@ -32,6 +34,6 @@ function getCurrentValue() {
   }
 }
 
-setInterval(readDHT11Sensor, 3000);
+setInterval(readDHT11Sensor, 3000); // check data every 3 seconds
 
 module.exports = {temperature, humidity, setNewDataHandler, getCurrentValue}
