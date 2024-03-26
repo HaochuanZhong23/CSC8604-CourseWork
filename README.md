@@ -1,51 +1,58 @@
-Hi welcome to the web app source code of leaflink
+# LeafLink Web App Source Code Documentation
 
-//files in use
+## Files in Use
 
-Back-end
-pm.mjs -- Retrieve pm10 and pm2.5 data
+### Back-end
 
-    import {pm10, pm25} to get pm data
+- **pm.mjs**: Retrieves pm10 and pm2.5 data
+    - Import: `import { pm10, pm25 }` to get pm data
 
-tempHum.mjs -- Retrieve temperature and humidity
+- **tempHum.mjs**: Retrieves temperature and humidity
+    - Import: `import { temperature, humidity, getCurrentValue }` to get temperature and humidity
+    - `getCurrentValue()` is a callback function
 
-    import {temperature, humidity, getCurrentValue} to get temperature and humidity
-    getCurrentValue() is a call back
+- **light.mjs**: Retrieves brightness from Microbit
+    - Import: `import { getLightValue }` to get brightness
+    - `getLightValue()` is a callback function
 
-light.mjs -- Retrieve brightness from Microbit
+- **AllLight.mjs**: Controls breathing light (Raspberry Pi LED)
+    - Import: `import { checkAndUpdateLight }` and call it to control breathing light
 
-    import { getLightValue } to get brightness
-    getLightValue() is a call back
+- **server.mjs**: Transmits different data via URLs
+    - URL format: `http://localhost:3000/` + `{url}`
+    - URLs:
+        - `/pm25`
+        - `/pm10`
+        - `/light`
+        - `/hum`
+        - `/temp`
 
-AllLight.mjs -- Control breathing light (Raspberry Pi LED)
+### Front-end
 
-    import { checkAndUpdateLight } and just call it to control breathing light
+- **humidity.jsx/light.jsx/pm10.jsx/pm25.jsx/temp.jsx**: Flow chart components (called in `insight.jsx`)
+- **App.jsx**: Router management
+- **Result.jsx**: Landing page, air quality summary, gateway
+- **Insight.jsx**: Real-time flow charts
+- **Suggestion.jsx**: Plant suggestion according to measured air quality
 
-server.mjs -- Transmit different data via URLs
+## Setup
 
-    http://localhost:3000/ + {url}
-    url = /pm25
-          /pm10
-          /light
-          /hum
-          /temp
+Before running:
+- Install dependencies:
+    - `npm i`
+    - `cd Coursework`
+    - `npm i`
 
-Front-end
-humidity.jsx/light.jsx/pm10.jsx/pm25.jsx/temp.jsx -- Flow chart components (called in insight.jsx)
-App.jsx -- Router management
-Result.jsx -- Landing page, air quality summary, gateway
-Insight.jsx -- Real-time flow charts
-Suggestion.jsx -- Plant suggestion according to measured air quality
+## Running the Application
 
-before running:
-    npm i
-    cd Coursework
-    npm i
-
-Run Back-end first:
+1. Run Back-end first:
+    ```
     node server.mjs
+    ```
 
-Then run front-end:
+2. Then run front-end:
+    ```
     cd Coursework
     npm run dev
+    ```
 
