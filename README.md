@@ -1,4 +1,4 @@
-Hi welcome to the web app source code of leaf link
+Hi welcome to the web app source code of leaflink
 
 //files in use
 
@@ -38,14 +38,14 @@ Insight.jsx -- Real-time flow charts
 Suggestion.jsx -- Plant suggestion according to measured air quality
 
 before running:
-npm i
-cd Coursework
-npm i
+    npm i
+    cd Coursework
+    npm i
 
 Run Back-end first:
-node server.mjs
+    node server.mjs
 
 Then run front-end:
-cd Coursework
-npm run dev
+    cd Coursework
+    npm run dev
 
